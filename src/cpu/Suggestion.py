@@ -35,12 +35,6 @@ class Suggestion:
         moviments = self.__moviment_tree.max3() if new_chess_match.current_player == 'WHITE' else self.__moviment_tree.min3()
         gui.show_suggestions(moviments)
 
-<<<<<<< HEAD
-    @staticmethod
-    def get_eval(stockfish, chess_match) -> float:
-
-        stockfish._put(f"position fen {chess_match.get_fen_notation()}\n eval")
-=======
     def get_eval(self, stockfish, chess_match=None, fen=None) -> float:
         if fen:
             stockfish._put(f"position fen {fen}\n eval")
@@ -49,7 +43,6 @@ class Suggestion:
         else:
             ValueError('Fen notation nao especificada')
             
->>>>>>> 9eed081df4217d923183a4019aa1bee1246ef2a2
         while True:
             text = stockfish._read_line()
             splitted_text = text.split(" ")
